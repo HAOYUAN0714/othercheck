@@ -1,0 +1,26 @@
+steps:
+  ########## Fore background-cron ##########
+  - name: gcr.io/cloud-builders/docker
+    args:
+      - build
+      - -t
+      - gcr.io/$PROJECT_ID/$REPO_NAME-background-cron-$_DEPLOY_ENV:$REVISION_ID
+      - -t
+      - gcr.io/$PROJECT_ID/$REPO_NAME-background-cron-$_DEPLOY_ENV:latest
+      - -f
+      - cloudbuild/Dockerfile-background-cron
+      - .
+      - --build-arg
+      - BRANCH_NAME=$BRANCH_NAME
+  - name: gcr.io/cloud-builders/docker
+    args:
+      - push
+      - gcr.io/$PROJECT_ID/$REPO_NAME-background-cron-$_DEPLOY_ENV:$REVISION_ID
+  - name: gcr.io/cloud-builders/docker
+    args:
+      - push
+      - gcr.io/$PROJECT_ID/$REPO_NAME-background-cron-$_DEPLOY_ENV:latest
+  - name: gcr.io/rd1-resources/auto-remove-image
+    args:
+      - last-image-remove
+      - gcr.io/$PROJECT_ID/$REPO_NAME-background-cron-$_DEPLOY_ENV

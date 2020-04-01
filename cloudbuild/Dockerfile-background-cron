@@ -1,0 +1,9 @@
+FROM richarvey/nginx-php-fpm:1.7.4
+ARG BRANCH_NAME
+ENV envValue=$BRANCH_NAME
+COPY . /var/www/html
+RUN chmod +x /var/www/html/environment/cronjob/gcp-${BRANCH_NAME}/background-cron.sh
+RUN chmod -R 777 /var/www/html/storage \
+    && chmod -R 777 /var/www/html/bootstrap/cache
+WORKDIR /var/www/html
+CMD ["sh", "-c", "/var/www/html/environment/cronjob/gcp-${envValue}/background-cron.sh"]

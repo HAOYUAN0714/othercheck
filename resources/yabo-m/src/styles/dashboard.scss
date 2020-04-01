@@ -1,0 +1,132 @@
+
+.dashboard {
+  &-container {
+    margin: 0px;
+  }
+  &-choose {
+    display: -webkit-box;
+    padding: 4px 6px;
+    overflow: scroll;
+    width: 100%;
+    background-color: var(--sport_bg);
+    &-item {
+      text-align: center;
+      color: var(--sport_text);
+      margin-right: 15px;
+      min-width: 35px;
+      max-width: 60px;
+      &-text {
+        font-size: .8em;
+        font-weight: 600;
+      }
+      &-icon {
+        padding: 5px;
+        font-size: 1.4em;
+        & .icon {
+          height: 25px;
+        }
+      }
+    }
+  }
+  &-scoreListArea {
+    background-color: #e8e8e8;
+    padding: 6px;
+    & .scoreList {
+      border-radius: 5px;
+      padding: 5px;
+      & .item {
+        display: flex;
+        height: 50px;
+        border-radius: 5px;
+        background-color: var(--title1_bg);
+        border-top: 1px solid #000000a1;
+        padding: 6px 10px;
+        color: var(--title1_text);
+        align-items: center;
+        & .title {
+          font-size: 16px;
+          font-weight: bold;
+          margin: 0;
+          padding: 10px 1px;
+          width: 91%;
+        }
+        & .sub-text {
+          color: var(--title1_sub_text);
+        }
+        & .count {
+          float: right;
+          font-weight: 500;
+          color: rgb(4, 20, 110);
+          margin: 0;
+          padding: 10px 1px;
+        }
+      }
+      & .text {
+        &-title {
+          color: #006ea2;
+          font-weight: bold;
+          font-size: 16px;
+          flex: 6;
+          margin: 0;
+          padding: 15px 10px;
+        }
+        &-borderBottom {
+          border-bottom: 0.7px #848484;
+          border-bottom-style: dashed;
+        }
+        &-teamArea {
+          display: inline-flex;
+          color: #848484;
+          padding: 10px 5px 5px 10px;
+          width: 100%;
+          border-bottom: 0.7px #848484;
+          border-bottom-style: dashed;
+          & p {
+            margin-bottom: 5px
+          }
+          & .score {
+            color: #006ea2;
+            width: 10%;
+            font-size: 16px;
+          }
+          & .team {
+            width: 65%;
+            font-size: 16px;
+          }
+          & .time {
+            display: inline-flex;
+            width: 25%;
+            padding: 5px 0px;
+            font-size: 12px;
+            text-align: right;
+            margin-bottom: 5px;
+            & .iconBox {
+              height: 33px;
+              padding: 6px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+.tick {
+  width: 0;
+  align-self: baseline;
+  height: 30px;
+  bottom: -24px;
+  left: 11px;
+  border-style: solid;
+  border-width: 0 6px 6px 6px;
+  border-color: transparent transparent #fbfffb transparent;
+}
+.spaceLeft{
+  margin-left: 5px;
+}
+.redCard{
+  text-align: center;
+  height: 20px;
+  padding: 0 3px;
+  color: var(--sport_text);
+  background: red;
+}

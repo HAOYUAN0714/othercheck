@@ -1,0 +1,124 @@
+.dashboard-container {
+  margin: 0px;
+}
+
+.dashboard-choose {
+  display: -webkit-box;
+  padding: 4px 6px;
+  overflow: scroll;
+  width: 100%;
+}
+
+.dashboard-choose-item {
+  width: 52px;
+  height: 50px;
+  text-align: center;
+}
+
+.dashboard-choose-item-text {
+  font-size: 10px;
+  color: #848484;
+}
+
+.dashboard-choose-item-icon {
+  padding: 6px;
+  color: #afadad;
+  font-size: 1.4em;
+}
+
+.dashboard-scoreListArea {
+  background-color: #e8e8e8;
+  padding: 6px;
+}
+
+.dashboard-scoreListArea .scoreList {
+  border-radius: 5px;
+  padding: 5px;
+  background-color: #fff;
+}
+
+.dashboard-scoreListArea .scoreList .item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 50px;
+  border-radius: 5px;
+  background-color: #32a6de;
+  padding: 6px 10px;
+}
+
+.dashboard-scoreListArea .scoreList .item .title {
+  color: #ffb326;
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+  padding: 10px 1px;
+  width: 91%;
+}
+
+.dashboard-scoreListArea .scoreList .item .count {
+  float: right;
+  font-weight: 500;
+  color: #04146e;
+  margin: 0;
+  padding: 10px 1px;
+}
+
+.dashboard-scoreListArea .scoreList .text-title {
+  color: #006ea2;
+  font-weight: bold;
+  font-size: 16px;
+  -webkit-box-flex: 6;
+      -ms-flex: 6;
+          flex: 6;
+  margin: 0;
+  padding: 15px 10px;
+}
+
+.dashboard-scoreListArea .scoreList .text-borderBottom {
+  border-bottom: 0.7px #848484;
+  border-bottom-style: dashed;
+}
+
+.dashboard-scoreListArea .scoreList .text-teamArea {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  color: #848484;
+  padding: 10px 5px 5px 10px;
+  width: 100%;
+  border-bottom: 0.7px #848484;
+  border-bottom-style: dashed;
+}
+
+.dashboard-scoreListArea .scoreList .text-teamArea p {
+  margin-bottom: 5px;
+}
+
+.dashboard-scoreListArea .scoreList .text-teamArea .score {
+  color: #006ea2;
+  width: 10%;
+  font-size: 16px;
+}
+
+.dashboard-scoreListArea .scoreList .text-teamArea .team {
+  width: 65%;
+  font-size: 16px;
+}
+
+.dashboard-scoreListArea .scoreList .text-teamArea .time {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  width: 25%;
+  padding: 5px 0px;
+  font-size: 12px;
+  text-align: right;
+  margin-bottom: 5px;
+}
+
+.dashboard-scoreListArea .scoreList .text-teamArea .time .iconBox {
+  height: 33px;
+  padding: 6px;
+}
+/*# sourceMappingURL=dashboard.css.map */

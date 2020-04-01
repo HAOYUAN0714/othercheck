@@ -1,0 +1,140 @@
+:root{
+    // main(首頁和過關)
+    --top_bg: #333;
+
+    --nav_bg: #272727;
+    --nav_text: #fff;
+    --nav_active_text: #E7C679;
+
+    --sport_bg: #000;
+    --sport_text: #fff;
+    --sport_active_text: #E7B92C;
+
+    // 菜單 右邊可能有按鈕
+    --title1_bg: #B98D50;
+    --title1_text: #fff;
+    --title1_sub_text: #E7C679;
+    --title1_right_active_btn_bg: #E7C679;
+    --title1_right_active_btn_text: #000;
+    // --title1_right_btn_bg: #B98D50;
+    // --title1_right_btn_text: #fff;
+
+    // 參賽表 賽事 冠軍盤口
+    --title2_bg: #9A7541;
+    --title2_text: #fff;
+    --title2_active_text: #E7C679;
+
+    // 所有賽事 滾球賽事 今日賽事
+    --title3_bg: #272727;
+    --title3_text: #fff;
+    --title3_active_text: #E7C679;
+
+    //content
+    //首頁的國家 或內頁的聯盟
+    --content_title1_bg: #9A7541;
+    --content_title1_text: #fff;
+
+    //首頁的聯盟 內頁的賽事文字
+    --content_data_bg: #fff;
+    --content_data_text: #707070;
+
+    // 下半場 02:48 1> 讓球 大小
+    --content_gameline_bg: #272727;
+    --content_gameline_text: #E7C679;
+    --content_gameline_sub_text: #bcbcbc;
+
+    //homepage
+    --content_home1_bg: #333;
+    --content_home1_text: #B98D50;
+
+    --content_home2_bg: #fff;
+    --content_home2_title_text: #B98D50;
+    --content_home2_inner_text: #707070;
+
+    --content_home3_bg: #e2e2e2;
+    --content_home3_sub_bg: #E7C679;
+    --content_home3_text: #707070;
+
+    --content_home4_bg: #FFF;
+
+    --content_caps: #00557D;
+    --content_odds_bg: #FFF;
+    --content_odds_text: #000;
+
+    //sidebar
+    --side_top_bg: #272727;
+
+    --side_normal_bg: #333333;
+    --side_normal_text: #fff;
+
+     //不能點的標題
+    --side_title_bg: #bcbcbc;
+    --side_title_text: #000;
+
+     // 選擇中
+    --side_current_bg: #B98D50;
+    --side_current_text: #fff;
+
+    // history
+    --history_main_bg: #FBFBFB;
+    --history_main_text: #848484;
+
+    --history_title1_bg: #272727;
+    --history_title1_text: #fff;
+    --history_title2_bg: #B98D50;
+    --history_title2_sub_bg: #d2b163;
+    --history_title2_sub2_bg: #d2c4a0;
+    --history_title2_sub2_text: #707070;
+    --history_title2_text: #fff;
+    --history_content1_text: #707070;
+
+    --side_history_sub_bg: #707070;
+    //--side_history_sub_text: #fff;
+    --side_count_bg: #FF9300;
+    --side_count_text: #000;
+
+    --side_menu1_bg: #272727;
+    --side_menu1_btn_bg: #000;
+    --side_menu1_text: #fff;
+
+    --side_menu2_bg: #535353;
+    --side_menu2_text: #D5F1FF;
+    --side_menu2_sub_text: #84b653;
+
+    // more game vs text
+    --more_game_vs_text: #FFA800;
+    --more_game_header_bg: #333;
+    --more_game_header_text: #E7C679;
+    --more_game_header_sub_text: #BCBCBC;
+
+    // bet-slip-btn
+    --betslip_outer_bg: #955d2c;
+    --betslip_outer_text: #fff;
+
+    --betslip_top_bg: #B98D50;
+    --betslip_top_text: #fff;
+    --betslip_top_sub_text: #000;
+
+    --betslip_middle_bg: #cecccc;
+    --betslip_middle_icon: #955d2c;
+
+    --betslip_bottom_bg: #632e00;
+    --betslip_bottom_text: #fff;
+    --betslip_sub_text: #b4b4b4;
+
+    --betslip_check_bg: #e2c294;
+
+    --betslip_bottom_btn1_bg : #eaaf33;
+    --betslip_bottom_btn1_text : #fff;
+
+    --betslip_bottom_btn2_bg : #c0c0c0;
+    --betslip_bottom_btn2_text : #632e00;
+
+    --betslip_bottom_btn3_text : #fff;
+
+    --betslip_bottom_check_text: #eaaf33;
+
+
+
+
+}

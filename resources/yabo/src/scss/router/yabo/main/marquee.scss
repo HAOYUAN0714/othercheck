@@ -1,0 +1,37 @@
+.marqueePage {
+  width: 1000px;
+  background: var(--white);
+  margin: auto;
+  color: var(--dark);
+  .header,
+  .marquee {
+    display: flex;
+    padding: 10px;
+    & > .index {
+      line-height: 20px;
+      width: 50px;
+      font-size: 16px;
+      height: 20px;
+      text-align: center;
+    }
+    & > .content {
+      width: calc(100% - 120px);
+      font-size: 16px;
+      line-height: 20px;
+    }
+    & > .time {
+      width: 70px;
+      font-size: 16px;
+      line-height: 20px;
+    }
+  }
+  .header {
+    background: var(--secondary);
+    color: var(--white);
+  }
+  .marquee {
+    &:nth-child(even) {
+      background: var(--primary);
+    }
+  }
+}

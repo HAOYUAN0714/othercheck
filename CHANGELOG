@@ -1,0 +1,12 @@
+# Change Log
+All notable changes to this project will be documented in this file.
+The format is based on [Keep a Changelog](http://keepachangelog.com/)
+and this project adheres to [Semantic Versioning](http://semver.org/).
+## 範本 [Unreleased]
+### Added        (添加的新功能)
+### Changed      (功能變更)
+### Deprecated   (不建議使用，未來會刪掉)
+### Removed      (之前不建議使用的功能，這次真的刪掉了)
+### Fixed        (改的bug)
+### Security     (改的有關安全相關bug)
+---------------------------------------------------------------------------

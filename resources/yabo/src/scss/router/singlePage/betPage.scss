@@ -1,0 +1,227 @@
+.betPage {
+  max-width: 1440px;
+  min-width: 830px;
+  background: white;
+  border: solid 1px var(--borderColor);
+  margin: auto;
+  & > .header {
+    font-weight: bold;
+    background: #e1e1e1;
+    color: #6e6e6e;
+    padding: 20px;
+    font-size: 18px;
+  }
+  & > .dateOption {
+    display: flex;
+    height: 40px;
+    border-bottom: solid 1px white;
+    & > .option {
+      line-height: 40px;
+      font-size: 12px;
+      background-color: #e3e3e3;
+      color: grey;
+      padding: 0 20px;
+      text-align: center;
+      &:nth-child(n + 2) {
+        border-left: solid 1px white;
+      }
+      &:hover {
+        opacity: 0.75;
+        cursor: pointer;
+      }
+      &.active {
+        background-color: var(--primary);
+        color: white;
+      }
+    }
+  }
+  & > .search {
+    display: flex;
+    color: grey;
+    height: 30px;
+    line-height: 30px;
+    font-size: 13px;
+    padding: 10px 20px;
+    & > input {
+      height: 30px;
+      margin: 0 5px;
+    }
+    & > .button {
+      background: rgb(41, 41, 41);
+      color: white;
+      height: 30px;
+      line-height: 30px;
+      padding: 0 10px;
+      cursor: pointer;
+      border-radius: 3px;
+      &:hover {
+        opacity: 0.75;
+      }
+    }
+  }
+  & > .hint {
+    color: #323232;
+    padding: 6px 20px;
+    font-size: 16px;
+    text-transform: uppercase;
+    font-weight: bold;
+  }
+  & > .dateHint {
+    color: #323232;
+    padding: 30px 20px;
+    font-size: 16px;
+    text-transform: uppercase;
+    font-weight: bold;
+  }
+  & > .betsTable {
+    .top {
+      background: var(--primary);
+      color: white;
+      font-size: 15px;
+      padding: 5px 10px;
+    }
+    .header {
+      & > div {
+        color: var(--white);
+
+        text-align: center;
+        padding: 10px;
+      }
+    }
+    .wagerItem {
+      & > div {
+        padding: 10px;
+        &:nth-child(n + 2) {
+          border-left: solid 1px var(--borderColor);
+        }
+      }
+      &:nth-child(n + 2) {
+        border-top: solid 1px var(--borderColor);
+      }
+      .winlose,
+      .money,
+      .status,
+      .number {
+        text-align: center;
+        display: flex;
+        align-items: center;
+      }
+    }
+    .header {
+      background: var(--dark);
+      padding-right: 15px;
+    }
+    .header,
+    .wagerItem {
+      display: flex;
+      width: 100%;
+
+      & > .number {
+        flex: 1;
+        display: inline-block;
+      }
+      & > .details {
+        flex: 4;
+      }
+      & > .type {
+        flex: 3;
+        display: flex;
+        flex-direction: column;
+        .inside {
+          flex: 1;
+          &:nth-child(n + 2) {
+            border-top: solid 1px rgb(220, 220, 220);
+          }
+        }
+      }
+      & > .option {
+        flex: 5;
+        display: flex;
+        flex-direction: column;
+
+        .inside {
+          flex: 1;
+          &:nth-child(n + 2) {
+            border-top: solid 1px rgb(220, 220, 220);
+          }
+          .bottom {
+            .hdc,
+            .name,
+            .oddsValue {
+              color: var(--themeText);
+            }
+          }
+        }
+      }
+      & > .money {
+        flex: 2;
+        display: block;
+      }
+      & > .winlose {
+        text-align: center;
+        display: block;
+        align-items: center;
+        flex: 2;
+        &.win {
+          color: green;
+        }
+        &.lose {
+          color: red;
+        }
+      }
+      & > .status {
+        flex: 2;
+        display: block;
+        &.win {
+          color: green;
+        }
+        &.draw {
+          color: grey;
+        }
+        &.lose {
+          color: red;
+        }
+      }
+    }
+    .body {
+      position: relative;
+      max-height: 660px;
+
+      .total {
+        width: 100%;
+        height: 40px;
+        line-height: 40px;
+        text-align: right;
+        background: var(--black);
+        color: var(--white);
+        display: flex;
+        .text {
+          flex: 12;
+          text-align: right;
+        }
+        .totalBet {
+          flex: 2;
+          text-align: center;
+        }
+        .winLose {
+          flex: 2;
+          text-align: center;
+          &.win {
+            color: green;
+          }
+          &.lose {
+            color: red;
+          }
+        }
+        .emptyBlock {
+          flex: 2;
+        }
+      }
+      .wagerTable {
+        max-height: 620px;
+        height: auto;
+        overflow-y: scroll;
+      }
+    }
+  }
+}

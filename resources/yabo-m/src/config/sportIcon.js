@@ -1,0 +1,23 @@
+export default {
+  1: 'futbol',
+  2: 'basketball-ball',
+  3: 'table-tennis',
+  6: 'running',
+  8: 'baseball-ball',
+  9: 'volleyball-ball',
+  10: 'dot-circle',
+  11: 'hand-rock',
+  15: 'bullseye',
+  18: 'hockey-puck',
+  19: 'football-ball',
+  23: 'circle',
+  25: 'hockey-puck',
+  28: 'car',
+  29: 'car',
+  31: 'hockey-puck',
+  32: 'ship',
+  34: 'dot-circle',
+  40: 'volleyball-ball',
+  41: 'tint',
+  45: 'dice-five'
+}

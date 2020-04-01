@@ -1,0 +1,179 @@
+
+.dashboard {
+  &-container {
+    margin: 0px;
+  }
+  &-choose {
+    display: -webkit-box;
+    padding: 0 7px;
+    overflow: scroll;
+    width: 100%;
+    background-color: var(--sport_bg);
+    &-item {
+      margin-right: 15px;
+      min-width: 35px;
+      max-width: 60px;
+      // height: 60px;
+      text-align: center;
+      margin-bottom: 3px;
+      color: var(--sport_text);
+      &-text {
+        font-size: .8em;
+        font-weight: 600;
+      }
+      &-icon {
+        padding: 6px;
+        font-size: 1.4em;
+        & .icon {
+          height: 25px;
+        }
+      }
+    }
+  }
+  &-scoreListArea {
+    background-color: #e8e8e8;
+    padding: 6px;
+    .scoreList {
+      background-color: var(--content_home2_bg);
+      padding: 5px;
+    }
+    & .item {
+      display: flex;
+      height: 50px;
+      border-radius: 5px;
+      // background: linear-gradient(to right, #955d2c, #cc9712 70%, #b78508 80%, #955d2c 100%);
+      background-color: var(--content_home1_bg);
+      color: var(--content_home1_text);
+      padding: 6px 10px;
+      & .title {
+        font-size: 16px;
+        font-weight: bold;
+        margin: 0;
+        padding: 10px 1px;
+        width: 91%;
+      }
+      & .count {
+        float: right;
+        font-weight: 500;
+        margin: 0;
+        padding: 10px 1px;
+      }
+    }
+    & .scoreList-inner {
+      border-radius: 5px;
+      padding: 5px 0;
+      border-bottom: 2px solid #c9c6cd;
+      & .text {
+        &-title {
+          color: var(--content_home2_title_text);
+          font-weight: bold;
+          font-size: 16px;
+          flex: 6;
+          margin: 0;
+          padding: 15px 10px;
+        }
+        &-borderBottom {
+          border-bottom: 0.7px #848484;
+          border-bottom-style: dashed;
+        }
+        &-teamArea {
+          display: inline-flex;
+          color: var(--content_home2_inner_text);
+          padding: 10px 5px 5px 10px;
+          width: 100%;
+          border-bottom: 1px solid #E2E2E2;
+          &:last-child {
+            border-bottom: none;
+          }
+          & p {
+            margin-bottom: 5px;
+          }
+          & .score {
+            color: var(--content_home2_title_text);
+            width: 10%;
+            font-size: 16px;
+          }
+          & .team {
+            width: 65%;
+            font-size: 16px;
+            &.no-score {
+              width: 75%;
+            }
+            & p {
+              white-space: nowrap;
+              overflow-x: scroll;
+              overflow-y: hidden;
+            }
+          }
+          & .time {
+            display: inline-flex;
+            width: 25%;
+            padding: 10px 20px 1px;
+            font-size: 12px;
+            text-align: right;
+            margin-bottom: 5px;
+            align-items: center;
+            & .iconBox {
+              height: 33px;
+              padding: 1px 4px;
+              font-size: 20px;
+            }
+            & .detail {
+              display: inline-block;
+              width: 40px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+.tick {
+  width: 0;
+  align-self: baseline;
+  height: 30px;
+  bottom: -24px;
+  left: 11px;
+  border-style: solid;
+  border-width: 0 6px 6px 6px;
+  border-color: transparent transparent #fbfffb transparent;
+}
+
+.all-play-btn {
+background-color: var(--content_home3_bg);
+height: 50px;
+line-height: 50px;
+margin-top: 10px;
+text-align: center;
+font-size: 15px;
+color: var(--content_home3_text);
+.title {
+  float: left;
+  width: calc(100% - 60px);
+  padding: 0 5px;
+  overflow:hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.count {
+  background-color: var(--content_home3_sub_bg);
+  float: left;
+  width: 60px;
+  padding-left: 10px;
+}
+}
+.all-run-ball {
+padding: 5px;
+}
+
+//rosie add
+.spaceLeft{
+  margin-left: 5px;
+}
+.redCard{
+  text-align: center;
+  height: 20px;
+  padding: 0 3px;
+  color: var(--sport_text);
+  background: red;
+}

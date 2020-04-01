@@ -1,0 +1,311 @@
+.games-wrap {
+    margin: 0 auto;
+    width: 720px;
+}
+
+.filters-wrap {
+    position: relative;
+}
+
+.sport-select-wrap {
+    overflow: auto;
+    width: 500px;
+    // height: 65px;
+}
+.sport-select {
+    width: max-content;
+}
+
+.sport-select .active {
+    color: #4890F7;
+    border: 1px solid #4890F7;
+}
+
+.sport-sort {
+    cursor: pointer;
+    font-size: 12px;
+    border-radius: 3px;
+    padding: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 5px;
+    color: #D3D7DD;
+    border: 1px solid #D3D7DD;
+    float: left;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -ms-border-radius: 3px;
+    -o-border-radius: 3px;
+}
+
+// .sport-sort:nth-child(1) {
+//     margin-left: 0px;
+// }
+
+.sport-sort-name {
+    margin-left: 3px;
+}
+
+/* .sport-sort::after {
+    content: '';
+    clear: both;
+} */
+
+.list-title {
+    font-size: 12px;
+    position: absolute;
+    right: 0;
+    bottom: 10px;
+    cursor: pointer;
+    color: #4890F7;
+
+}
+
+.list-title:hover {
+    font-size: 12px;
+    position: absolute;
+    right: 0;
+    bottom: 10px;
+    cursor: pointer;
+    color: rgb(72, 98, 247);
+}
+
+.games-list {
+    width: 100%;
+    text-align: center;
+    font-size: 12px;
+    border-collapse: collapse;
+}
+
+.games-list > thead {
+    border-width: 1px 0;
+    border-color: #d1d1d1;
+    border-style: solid;
+}
+.games-list > thead th {
+    padding: 8px 0;
+}
+
+.games-list > tbody tr {
+    cursor: pointer;
+    border-bottom: 1px solid #e3ebf3;
+}
+
+.games-list .competition-name {
+    color: #FFFFFF;
+    padding: 3px;
+}
+
+.games-list > tbody .active {
+    background-color: #f4f8ff;
+}
+
+.games-list > tbody td {
+    padding: 8px 0;
+}
+
+.odds-left {
+    display: inline-block;
+    width: 32px;
+    text-align: right;
+    padding-right: 8px;
+}
+.odds-middle {
+    display: inline-block;
+    width: 32px;
+    text-align: center;
+}
+.odds-right {
+    display: inline-block;
+    width: 32px;
+    text-align: left;
+    padding-left: 8px;
+}
+
+.games-list .home-team-descript {
+    vertical-align: top;
+    display: inline-block;
+    margin-right: -3px;
+    font-size: 12px;
+    transform: scale(0.75);
+    -webkit-transform: scale(0.75);
+    -moz-transform: scale(0.75);
+    -ms-transform: scale(0.75);
+    -o-transform: scale(0.75);
+}
+
+/* .games-list .home-team {
+    text-align: right;
+} */
+
+.games-list .home-team-name {
+    text-align: right;
+    padding-right: 20px;
+}
+
+/* .games-list .home-team-name {
+    width: 96px;
+    display: inline-block;
+} */
+
+.games-list .away-team-name {
+    text-align: left;
+    padding-left: 20px;
+}
+.has-score {
+    background-color: #e3ebf3;
+    padding: 2px 5px;
+}
+
+.has-half-score {
+    color: #ff0000;
+}
+
+.score-source {
+    color: #589af8;
+}
+
+.games-list .away-team-descript {
+    display: inline-block;
+    font-size: 12px;
+    margin-left: -3px;
+    transform: scale(0.75);
+    -webkit-transform: scale(0.75);
+    -moz-transform: scale(0.75);
+    -ms-transform: scale(0.75);
+    -o-transform: scale(0.75);
+}
+
+.audio-icon-off {
+    color: #dce4f3;
+}
+
+.audio-icon-on {
+    color: #4890f7;
+}
+
+.play-icon {
+    color: #ff697b;
+}
+
+.pause-icon {
+    color: #6d788d;
+}
+
+.arrow-top-icon {
+    color: #589af8;
+}
+
+// 語系切換
+.language-controller {
+    position: absolute;
+    right: 0;
+    bottom: 30px;
+    cursor: pointer;
+    color: #4890F7;
+    font-size: 12px;
+}
+
+.language-controller:hover {
+    color: #33CC88;
+}
+
+//  聯盟篩選
+.list-title .drop-down {
+    border: 2px solid #4890F7;
+    width: 720px;
+    z-index: 2000;
+    position: absolute;
+    top: 27px;
+    right: 0px;
+    background-color: #fff;
+    color: #888;
+    // display:none;
+    max-height: 100px;
+    overflow: auto;
+    padding: 5px;
+}
+
+.list-title .close {
+    display: none;
+}
+
+.list-title .drop-down-item {
+    padding: 1px 0;
+    width: 50%;
+    display: inline-block;
+    padding-left: 10px;
+}
+
+.list-title .drop-down-item:hover {
+    font-weight: bold;
+}
+
+.list-title .competitionOn {
+    color: #33CC88;
+
+}
+
+.disabled {
+    pointer-events: none;
+    color:#888;
+    cursor: default;
+}
+
+
+// 下拉日期
+.date-title {
+    position: relative;
+}
+
+.current-date-title:hover {
+    cursor: pointer;
+    color: #888;
+}
+
+.date-title .drop-down {
+    border: 1px solid #aaa;
+    position: absolute;
+    top: 34px;
+    background-color: #fff;
+    display:none;
+    max-height: 100px;
+    overflow: auto;
+    left: 0px;
+    min-width: calc(100% + 6px);
+}
+
+.date-title .drop-down-item {
+    padding: 1px 0;
+}
+
+.date-title .drop-down-item:hover {
+    background-color: #000088;
+    color: white;
+    cursor: pointer;
+}
+
+.date-title  .active {
+    display: block !important;
+}
+
+.date-title .drop-down > .active {
+    display:none !important;
+}
+
+.noOtherDate {
+    pointer-events: none;
+}
+
+.noOtherDate > .date-list-icon {
+    display: none;
+}
+
+.noGame {
+    text-align: center;
+    color: #FF2323
+}
+
+.playNone {
+    color:#888;
+}

@@ -1,0 +1,115 @@
+/* 選定賽事比分 */
+
+.top-scroe {
+    z-index: 1;
+    position: relative;
+    width: 1024px;
+    margin: 0 auto;
+    padding: 10px 180px;
+    /* height: 50px; */
+    background-image: linear-gradient(to right, #ff9BAD 5%, #FF6275 17.5%, transparent 0%),
+    linear-gradient(45deg, #FF6275 34.5%,   transparent 0%),
+    linear-gradient(45deg, #FF6E82 37%,   transparent 0%),
+    linear-gradient(45deg, #FF97A9 38%,   transparent 0%),
+    linear-gradient(135deg, #E2E6EB 62%,   transparent 0%),
+    linear-gradient(135deg, #68BDFD 63%,   transparent 0%),
+    linear-gradient(135deg, #3690FF 65.5%,   transparent 0%),
+    linear-gradient(to right, #2C83FF 77.5%, #57B8FF 100%  ,transparent 0%);
+}
+
+.top-scroe .home-team {
+    float: left;
+}
+
+.top-scroe .home-team-icon {
+    float: left;
+    height: 45px;
+}
+
+.top-scroe .home-team-name {
+    float: left;
+    font-size: 14px;
+    margin-top: 13px;
+    margin-left: 5px;
+    color: #FFF;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    width: 104px;
+}
+
+.top-scroe .scroe-resault {
+    position: absolute;
+    left: 50%;
+    /* top: 0; */
+    bottom: 2px;
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
+}
+
+.top-scroe .union {
+    font-size: 12px;
+    text-align: center;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    width: 200px;
+    margin-bottom: 2px;
+}
+
+.scroe-resault > .separate-line {
+    margin: 1px 0;
+    height: 1px;
+    background-color: #C0C3C7;
+    width: 200px;
+    margin-bottom: -4px;
+}
+
+.current-result {
+    text-align: center;
+    font-size: 22px;
+    font-weight: bold;
+    vertical-align: middle;
+}
+
+.current-result > .home-team-score {
+    font-weight: bold;
+}
+
+.current-result > .contrast-icon {
+    margin: 0 25px;
+    color: #A9ABAD;
+}
+
+.current-result > .away-team-score {
+    font-weight: bold;
+}
+
+.top-scroe .away-team {
+    float: right;
+}
+
+.top-scroe .away-team-icon {
+    float: right;
+    height: 45px;
+}
+
+.top-scroe .away-team-name {
+    text-align: right;
+    float: right;
+    font-size: 14px;
+    margin-top: 13px;
+    margin-right: 5px;
+    color: #FFF;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    width: 104px;
+}
+
+.top-scroe .away-team-descript {
+    font-size: 12px;
+}

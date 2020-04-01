@@ -1,0 +1,12 @@
+FROM richarvey/nginx-php-fpm:1.7.4
+ARG BRANCH_NAME
+RUN apk add vim busybox-extras htop
+RUN rm -f /etc/nginx/sites-enabled/default.conf
+COPY environment/nginx/gcp-${BRANCH_NAME}/member.conf /etc/nginx/sites-enabled/default.conf
+COPY environment/php-fpm/www.conf /usr/local/etc/php-fpm.d/www.conf
+COPY . /var/www/html
+#RUN sed -e 's/\/var\/run\/php-fpm.sock/127.0.0.1:9000/' -i /usr/local/etc/php-fpm.d/www.conf
+RUN echo "fs.inotify.max_user_watches=524288" >> /etc/sysctl.conf
+RUN chmod -R 777 /var/www/html/storage \
+    && chmod -R 777 /var/www/html/bootstrap/cache
+WORKDIR /var/www/html

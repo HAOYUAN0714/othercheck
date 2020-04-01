@@ -1,0 +1,12 @@
+FROM richarvey/nginx-php-fpm:1.7.4
+ARG BRANCH_NAME
+COPY . /var/www/html
+COPY cloudbuild/multiple.sh /
+COPY cloudbuild/supervisord.conf /etc/supervisord.conf
+RUN apk add vim busybox-extras htop
+RUN chmod +x /multiple.sh
+RUN chmod -R 777 /var/www/html/storage \
+    && chmod -R 777 /var/www/html/bootstrap/cache
+RUN cat /var/www/html/environment/cronjob/gcp-${BRANCH_NAME}/core.cron >> /var/spool/cron/crontabs/root
+WORKDIR /var/www/html
+ENTRYPOINT ["/usr/bin/supervisord"]

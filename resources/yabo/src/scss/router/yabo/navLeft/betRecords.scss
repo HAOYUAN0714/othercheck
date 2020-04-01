@@ -1,0 +1,164 @@
+.betRecords {
+  width: 100%;
+  overflow-y: auto;
+  height: 640px;
+  overflow-x: hidden;
+  .pendingBet {
+    .tab {
+      cursor: pointer;
+      background: var(--primary);
+      font-size: 14px;
+      color: var(--mainText);
+      height: 38px;
+      line-height: 38px;
+      padding-left: 20px;
+      font-weight: bold;
+      display: flex;
+      .title {
+        line-height: 16px;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        .top {
+          display: flex;
+          width: 100%;
+        }
+        .bottom {
+          font-weight: 400;
+        }
+        .wagerAmount {
+          margin-left: auto;
+        }
+      }
+    }
+    .body {
+      width: 100%;
+      .top {
+        width: 100%;
+        display: flex;
+        .button {
+          width: 50%;
+          cursor: pointer;
+          transition-duration: 0.2s;
+          color: var(--white);
+          height: 35px;
+          line-height: 35px;
+          text-align: center;
+          &:hover,
+          &.active {
+            color: var(--primary);
+          }
+        }
+      }
+      .empty {
+        background: #484747;
+        height: 38px;
+        line-height: 38px;
+        color: white;
+        font-size: 13px;
+        padding-left: 10px;
+      }
+      .wagerList {
+        position: relative;
+        width: 100%;
+        background: var(--white);
+        .wagerItem {
+          padding: 5px;
+          border-bottom: solid 1px var(--primary);
+          .infoTab {
+            color: var(--majorText);
+            font-size: 13px;
+            display: flex;
+            font-weight: 900;
+
+            .info {
+              background: var(--primary);
+              color: var(--white);
+              width: 18px;
+              position: relative;
+              cursor: pointer;
+              text-align: center;
+              height: 18px;
+              &:hover {
+                .infoDrop {
+                  visibility: visible;
+                }
+              }
+              & > .infoDrop {
+                position: absolute;
+                visibility: hidden;
+                top: 18px;
+                z-index: 99;
+                width: 180px;
+                padding: 5px;
+
+                border: solid 1px var(--grey);
+                background: var(--white);
+                & > div {
+                  font-size: 12px;
+                  color: var(--grey);
+                  text-align: left;
+                  &:nth-child(n + 2) {
+                    margin-top: 5px;
+                  }
+                }
+                & > .header {
+                  font-weight: 900;
+                  color: var(--black);
+                }
+              }
+            }
+            div {
+              margin: 0 2px;
+              color: var(--primary);
+            }
+            &:nth-child(n + 2) {
+              padding-top: 6px;
+            }
+          }
+          .wagerBody {
+            .textInfo {
+              color: var(--primary);
+            }
+            .top {
+              display: flex;
+              align-items: center;
+              .hdc,
+              .oddsValue {
+                color: var(--warning);
+                padding: 0 3px;
+              }
+            }
+            .center {
+              & > span {
+                font-size: 12px;
+                padding: 2px;
+                color: var(--dark);
+              }
+            }
+            .bottom {
+              display: flex;
+              .top {
+                color: var(--grey);
+              }
+              .right {
+                margin-left: auto;
+                span {
+                  display: block;
+                  text-align: right;
+
+                  &.win {
+                    color: green;
+                  }
+                  &.lose {
+                    color: red;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

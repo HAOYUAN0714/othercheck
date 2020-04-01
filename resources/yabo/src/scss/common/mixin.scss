@@ -1,0 +1,6 @@
+// 超字處理
+@mixin overFlowDot() {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}

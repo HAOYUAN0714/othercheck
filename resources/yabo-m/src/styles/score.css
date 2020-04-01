@@ -1,0 +1,239 @@
+.dashboard-choose {
+  height: 77px;
+}
+
+.dashboard-choose-item {
+  width: 52px;
+  height: 50px;
+  text-align: center;
+}
+
+.dashboard-scoreListArea {
+  padding: 0;
+}
+
+.dashboard-scoreListArea .scoreList {
+  padding: 0;
+}
+
+.dashboard-scoreListArea .scoreList .text-title {
+  font-size: 16px;
+  color: #bdbdbd;
+  background-color: #014d80;
+}
+
+.dashboard-scoreListArea .scoreList .item {
+  line-height: 27px;
+  border-radius: 0;
+  padding: 0 10px;
+}
+
+.dashboard-scoreListArea .scoreList .item .button-left {
+  text-align: center;
+  font-size: 9px;
+  width: 108px;
+  height: 30px;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  padding: 8px 15px;
+  margin: 10px 0;
+}
+
+.dashboard-scoreListArea .scoreList .item .button-right {
+  text-align: center;
+  font-size: 9px;
+  width: 65px;
+  height: 30px;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  padding: 8px 15px;
+  margin: 10px 0;
+}
+
+.dashboard-scoreListArea .scoreList .item .buttonActive {
+  background-color: #e5f8ff;
+  border-radius: 5px;
+}
+
+.dashboard-scoreListArea .scoreList .item .title {
+  width: 50%;
+  padding: 10px;
+}
+
+.dashboard-scoreListArea .scoreList .item .logo {
+  padding: 10px 0;
+}
+
+.icon {
+  color: #fff;
+}
+
+.header {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  width: 100%;
+  line-height: 30px;
+  font-size: 16px;
+  color: #1d1d1d;
+  padding: 0 10px;
+  background-color: #dddddd;
+}
+
+.header-left {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  width: 50%;
+}
+
+.header-left .time {
+  color: #0065a8;
+}
+
+.header-right {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  width: 50%;
+}
+
+.header-right .count {
+  width: 40px;
+  text-align: center;
+  padding: 0 11px;
+  margin: 0 10px;
+  background-color: #a8a8a8;
+  color: #0065a8;
+}
+
+.header-right p {
+  width: 31%;
+}
+
+.team {
+  background-color: #fff;
+  width: 100%;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+}
+
+.team-left {
+  width: 63%;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  line-height: 70px;
+  padding: 0px 3px;
+  font-weight: 500;
+}
+
+.team-left .pointer {
+  color: #0065a8;
+  margin: 0 30px;
+}
+
+.team-left .team {
+  color: #7e7e7e;
+}
+
+.team-right {
+  width: 37%;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  line-height: 67px;
+  padding: 0px 3px;
+}
+
+.team-right .oddBox-area {
+  width: 100%;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+}
+
+.team-right .oddBox-area .oddBox {
+  font-size: 11px;
+  text-align: center;
+  width: 50%;
+  margin: 0 3px;
+  height: 80%;
+  line-height: 25px;
+  padding: 4px;
+  border: solid #a8a8a8 1px;
+  border-radius: 5px;
+}
+
+.mean {
+  margin-top: 13px;
+}
+
+.header {
+  font-size: 8px;
+}
+
+.header-right p {
+  text-align: center;
+}
+
+.todayChoose {
+  background-color: #003a54;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  color: #fff;
+  padding: 10px;
+  font-size: 14px;
+}
+
+.todayChoose span {
+  color: #003a54;
+  border-radius: 50%;
+  background-color: #fff;
+  min-width: 8px;
+  min-height: 18px;
+  line-height: 18px;
+  text-align: center;
+  display: inline-block;
+  text-indent: -1px;
+  padding: 0 5px;
+  margin: 0 6px;
+}
+
+.todayChoose p {
+  width: 20%;
+}
+
+.pass-title {
+  line-height: 50px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: 14px;
+  color: #bdbdbd;
+  background-color: #013680;
+  padding: 0 9px;
+}
+
+.pass-title span {
+  margin: 0 10px;
+}
+
+.pass-title2 {
+  display: -webkit-box;
+  overflow: scroll;
+  background-color: #fff;
+  color: #bdbdbd;
+}
+
+.pass-title2 div {
+  font-size: 13px;
+  line-height: 45px;
+  width: 27%;
+  text-align: center;
+}
+/*# sourceMappingURL=score.css.map */

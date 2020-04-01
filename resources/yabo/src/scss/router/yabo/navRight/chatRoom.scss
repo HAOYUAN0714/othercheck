@@ -1,0 +1,148 @@
+@import "@/scss/common/mixin";
+
+.chatRoom {
+  width: 100%;
+  height: 100%;
+  background: var(--dark);
+  .room {
+    height: 100%;
+    width: 100%;
+    .header {
+      width: 100%;
+      height: 35px;
+      line-height: 35px;
+      background: var(--primary);
+      color: var(--white);
+      padding: 0 12px;
+      @include overFlowDot();
+    }
+    .body {
+      width: 100%;
+      background: var(--black);
+      height: calc(100% - 35px);
+      .msgTable {
+        height: calc(100% - 40px);
+        width: 100%;
+        position: relative;
+        overflow-y: auto;
+        padding: 10px;
+        & > .scrollBottom {
+          position: absolute;
+          right: 5px;
+          bottom: 5px;
+          width: 20px;
+          height: 20px;
+          background: red;
+          border-radius: 50%;
+        }
+        .msg {
+          margin-top: 5px;
+          .user {
+            font-size: 12px;
+            color: var(--grey);
+          }
+          width: 100%;
+          .text {
+            box-shadow: 0 0px 12px 4px rgba(150, 150, 150, 0.17);
+            padding: 5px;
+            border-radius: 5px;
+            width: auto;
+            position: relative;
+            display: inline-block;
+          }
+          .time {
+            font-size: 8px;
+            color: var(--grey);
+          }
+          &.other {
+            .text {
+              background: var(--gray);
+              color: var(--white);
+              &::before {
+                content: "";
+                position: absolute;
+                bottom: -3px;
+                border-top: 6px solid var(--grey);
+                left: 0;
+                border-right: 7px solid transparent;
+              }
+            }
+          }
+          &.self {
+            text-align: right;
+            .text {
+              background: var(--primary);
+              color: var(--white);
+              &::before {
+                content: "";
+                position: absolute;
+                bottom: -3px;
+                border-top: 6px solid var(--primary);
+                right: 0;
+                border-left: 7px solid transparent;
+              }
+            }
+          }
+        }
+      }
+      .input {
+        height: 40px;
+        width: 100%;
+        display: flex;
+        padding: 5px;
+        background: var(--primary);
+        & > .inputBox {
+          border: solid 1px var(--primary);
+          width: 100%;
+          background: var(--white);
+          height: 100%;
+          border-radius: 13px;
+          display: flex;
+          align-items: center;
+          line-height: 40px;
+          padding: 0 5px;
+          & > input {
+            width: calc(100% - 20px);
+            outline: none;
+            background: transparent;
+            border: none;
+            padding-left: 5px;
+          }
+          & > .sendBtn {
+            margin-left: auto;
+            width: 20px;
+            font-size: 20px;
+            cursor: pointer;
+            color: var(--primary);
+            transition-duration: 0.2s;
+            margin-right: 5px;
+            &:hover {
+              opacity: 0.8;
+            }
+          }
+        }
+      }
+    }
+  }
+  .insertMsg {
+    &-enter,
+    &-leave-to {
+      opacity: 0;
+    }
+    &-enter {
+      transform: translateX(-5px);
+    }
+    &-leave-to {
+      transform: translateX(5px);
+    }
+    &-enter-active {
+      transition: opacity 0.2s linear, transform 1s cubic-bezier(0.68, -0.12, 0, 1.18);
+    }
+    &-leave-active {
+      transition: opacity 0.6s linear, transform 1s cubic-bezier(0.68, -0.12, 0, 1.18);
+    }
+    &-move {
+      transition: all 0.2s ease-in-out;
+    }
+  }
+}

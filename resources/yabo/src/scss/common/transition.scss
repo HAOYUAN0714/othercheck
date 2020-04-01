@@ -1,0 +1,230 @@
+// .list-enter-active,
+// .list-leave-active,
+.list-move {
+  transition: 500ms cubic-bezier(0.59, 0.12, 0.34, 0.95);
+  transition-property: opacity, transform;
+}
+
+.list-enter {
+  // opacity: 0;
+  // transform: translateX(50px) scaleY(0.5);
+}
+
+.list-enter-to {
+  // opacity: 1;
+  // transform: translateX(0) scaleY(1);
+}
+
+.list-leave-active {
+  // position: absolute;
+}
+
+.list-leave-to {
+  // opacity: 0;
+  // transform: scaleY(0);
+  // transform-origin: center top;
+}
+
+//hint 動畫
+
+.hint-enter-active,
+.hint-leave-active,
+.hint-move {
+  transition: 300ms;
+  transition-property: opacity, transform;
+}
+
+.hint-enter {
+  opacity: 0;
+  transform: translateY(-50px) scaleX(1);
+}
+
+.hint-enter-to {
+  opacity: 1;
+  transform: translateY(0) scaleX(1);
+}
+
+.hint-leave-active {
+  position: absolute;
+}
+
+.hint-leave-to {
+  opacity: 0;
+  transform: translateY(-50px);
+  transform-origin: center top;
+}
+
+//collapse 動畫
+
+.collapse-enter-active,
+.collapse-leave-active,
+.hicollapsent-move {
+  transition: 300ms;
+}
+
+.collapse-enter {
+  opacity: 0;
+  height: 0px;
+}
+
+.el-zoom-in-top-leave-to {
+  height: 0;
+}
+.collapse-enter-to {
+  opacity: 1;
+  height: auto;
+}
+
+.collapse-leave-active {
+}
+
+.collapse-leave-to {
+  opacity: 0;
+  height: 0;
+}
+
+.betSlip-move {
+  transition: transform 0.25s;
+}
+
+.betSlip-leave-active {
+  position: absolute;
+  opacity: 0;
+}
+
+// Forwards transition
+
+.page-enter {
+  opacity: 0;
+  transform: translateX(40%);
+}
+
+.page-enter-active {
+  transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+// .page-leave-active {
+//   transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+//   opacity: 0;
+//   transform: translateX(40%);
+// }
+
+// Backwards transition
+
+.page-back-enter {
+  opacity: 0;
+  transform: translateX(-40%);
+}
+
+.page-back-enter-active {
+  transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+// .page-back-leave-active {
+//   transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+//   opacity: 0;
+//   transform: translateX(40%);
+// }
+@keyframes rainbow {
+  0% {
+    background-position: 0 50%;
+  }
+
+  100% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes bounce {
+  0% {
+    transform: translateY(0);
+    animation-timing-function: ease-out;
+  }
+
+  50% {
+    transform: translateY(-8px);
+    animation-timing-function: ease-in;
+  }
+  100% {
+    transform: translateY(0);
+    animation-timing-function: ease-out;
+  }
+}
+
+// 賠率上升動畫
+@keyframes oddUp {
+  0% {
+    background-color: transparent;
+  }
+  12.5% {
+    background-color: #d6f0ca;
+  }
+  25% {
+    background-color: transparent;
+  }
+  37.5% {
+    background-color: #d6f0ca;
+  }
+  50% {
+    background-color: transparent;
+  }
+  62.5% {
+    background-color: #d6f0ca;
+  }
+  75% {
+    background-color: transparent;
+  }
+  87.5% {
+    background-color: #d6f0ca;
+  }
+  100% {
+    background-color: transparent;
+  }
+}
+// 賠率下降動畫
+@keyframes oddDown {
+  0% {
+    background-color: transparent;
+  }
+  12.5% {
+    background-color: #f5c6cb;
+  }
+  25% {
+    background-color: transparent;
+  }
+  37.5% {
+    background-color: #f5c6cb;
+  }
+  50% {
+    background-color: transparent;
+  }
+  62.5% {
+    background-color: #f5c6cb;
+  }
+  75% {
+    background-color: transparent;
+  }
+  87.5% {
+    background-color: #f5c6cb;
+  }
+  100% {
+    background-color: transparent;
+  }
+}
+
+@keyframes rotating {
+  from {
+    -ms-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+  to {
+    -ms-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+}

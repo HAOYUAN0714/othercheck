@@ -1,0 +1,212 @@
+.streamFloatWrap {
+  position: relative;
+  width: 405px;
+  display: flex;
+  z-index: 9999999;
+  .selectSet {
+    width: 75px;
+    & > .header {
+      background: var(--dark);
+      color: var(--white);
+      height: 35px;
+      line-height: 35px;
+      text-align: center;
+    }
+    & > .body {
+      position: relative;
+      .solidSquare {
+        position: absolute;
+        width: 100%;
+        transition-duration: 0.2s;
+        height: 75px;
+        z-index: 0;
+        background: var(--primary);
+        top: 0;
+      }
+      .sportButton {
+        z-index: 1;
+        background: var(--black);
+        width: 100%;
+        transition-duration: 0.2s;
+        height: 75px;
+        color: var(--white);
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        user-select: none;
+        cursor: pointer;
+        & > .sportIcon {
+          font-size: 26px;
+          z-index: 2;
+        }
+        & > .sportCount {
+          margin-top: 5px;
+          z-index: 2;
+        }
+        &.active {
+          //background: var(--primary);
+          color: var(--mainText);
+        }
+        &:hover {
+          & > .sportIcon {
+            animation: bounce 0.5s linear infinite;
+          }
+        }
+      }
+    }
+  }
+  .navRightFloat {
+    top: 0;
+    z-index: 99999;
+    width: 330px;
+    background: var(--dark);
+    .top {
+      position: relative;
+      display: flex;
+      box-shadow: inset 0 -2px 0 0 var(--grey); /* Border bottom */
+      & > .option {
+        width: 50%;
+        height: 38px;
+        line-height: 38px;
+        text-align: center;
+        color: var(--grey);
+        transition-duration: 0.2s;
+        &.active {
+          color: var(--white);
+        }
+        &:hover {
+          cursor: pointer;
+        }
+      }
+      & > .underBorder {
+        transition-duration: 0.2s;
+        width: 50%;
+        box-shadow: inset 0 -2px 0 0 var(--secondary); /* Border bottom */
+        height: 3px;
+        bottom: 0;
+        position: absolute;
+      }
+    }
+  }
+
+  .floatBlock {
+    height: 680px;
+    overflow-y: auto;
+    .content {
+      padding: 2px;
+      width: 100%;
+      height: 100%;
+    }
+    .competitionWrap {
+      .header {
+        color: var(--grey);
+        height: 30px;
+        line-height: 30px;
+        padding: 0 5px;
+      }
+      .eventWrap {
+        width: 100%;
+        display: flex;
+
+        background: var(--black);
+        border-top: solid 1px var(--grey);
+        .eventTime {
+          width: 50px;
+          font-weight: 400;
+          background: #353a40;
+          text-align: center;
+          padding: 5px;
+          color: var(--white);
+        }
+        .eventParticipant {
+          padding: 5px;
+          display: flex;
+          flex-direction: column;
+          .team {
+            color: var(--white);
+          }
+        }
+      }
+    }
+  }
+  .isLive {
+    .iframe {
+      height: 150px;
+      text-align: center;
+      width: 100%;
+      position: relative;
+      font-size: 13px;
+      color: var(--white) !important;
+
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-pack: center;
+      justify-content: center;
+      -ms-flex-align: center;
+      align-items: center;
+      width: 100%;
+      background-color: var(--dark);
+      font-size: 13px;
+    }
+    .buttons {
+      position: relative;
+      width: 100%;
+      display: flex;
+      height: 40px;
+      box-shadow: inset 0 -2px 0 0 var(--grey);
+      line-height: 40px;
+      & > .underBorder {
+        transition-duration: 0.2s;
+        width: 50%;
+        box-shadow: inset 0 -2px 0 0 var(--secondary); /* Border bottom */
+        height: 3px;
+        bottom: 0;
+        position: absolute;
+      }
+      .button {
+        color: var(--grey);
+        transition-duration: 0.2s;
+        text-align: center;
+        width: 50%;
+        cursor: pointer;
+        &.active {
+          color: var(--white);
+        }
+      }
+    }
+    .body {
+      overflow-y: auto;
+      height: 480px;
+      background: var(--dark);
+      position: relative;
+      overflow-x: hidden;
+      .eventWrap {
+        margin-top: 5px;
+        cursor: pointer;
+        background: var(--black);
+        .competition {
+          color: var(--grey);
+        }
+        .eventBody {
+          padding: 5px;
+          color: var(--white);
+          &.active {
+            border: solid 1px var(--primary);
+          }
+        }
+      }
+      .appPng {
+        width: 330px;
+        height: 395px;
+      }
+      .qrCode {
+        position: absolute;
+        left: 21px;
+        top: 17px;
+        width: 105px;
+      }
+    }
+  }
+}

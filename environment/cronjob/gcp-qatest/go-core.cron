@@ -1,0 +1,4 @@
+30 * * * * * |0|cd /var/www/absinthe;PROJECT_ENV=gcp-qatest SERVICE_SITE=cronjob php artisan create-betCount-for-openParlay >> /dev/null
+30 * * * * * |0|cd /var/www/absinthe;PROJECT_ENV=gcp-qatest SERVICE_SITE=cronjob php artisan create-betCount-not-openParlay >> /dev/null
+30 * * * * * |0|cd /var/www/absinthe;PROJECT_ENV=gcp-qatest SERVICE_SITE=cronjob php artisan store-widget-event >> /dev/null
+* * * * * * |0|cd /var/www/absinthe;PROJECT_ENV=gcp-qatest SERVICE_SITE=cronjob php artisan monitor-error-count >> /dev/null

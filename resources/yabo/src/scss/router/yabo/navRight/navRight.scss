@@ -1,0 +1,274 @@
+@import "@/scss/common/mixin";
+.navRight {
+  width: 330px;
+  background: var(--white);
+  border-left: solid 2px var(--dark);
+  height: 100%;
+  .welcome {
+    width: 100%;
+    height: 34px;
+    font-size: 12px;
+    padding-left: 12px;
+    line-height: 34px;
+    color: var(--white);
+    background: var(--primary);
+  }
+  .tab {
+    height: 40px;
+    font-size: 13px;
+    padding-left: 12px;
+    color: var(--white);
+    background: var(--dark);
+    line-height: 40px;
+    .tutorial {
+      float: right;
+      min-width: 68px;
+      width: auto;
+      padding: 0 5px;
+      height: 19px;
+      border-radius: 10px;
+      border: 1px solid var(--primary);
+      color: var(--primary);
+      text-align: center;
+      line-height: 19px;
+      margin-top: 11px;
+      margin-right: 12px;
+      cursor: pointer;
+      font-size: 12px;
+    }
+  }
+  .matchInfo {
+    height: 20px;
+    background: var(--paleBackground);
+    width: 100%;
+    line-height: 20px;
+    display: flex;
+    & > .home,
+    & > .away {
+      @include overFlowDot();
+      font-size: 12px;
+      width: 45%;
+      color: var(--themeText);
+    }
+    .vs {
+      width: 10%;
+      text-align: center;
+      font-size: 14px;
+      color: var(--primary);
+    }
+    .home {
+      text-align: right;
+    }
+    .away {
+      text-align: left;
+    }
+  }
+  .iframe {
+    height: 150px;
+    text-align: center;
+    width: 100%;
+    position: relative;
+    font-size: 13px;
+    color: var(--white) !important;
+
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -ms-flex-align: center;
+    align-items: center;
+    width: 100%;
+    background-color: var(--dark);
+    font-size: 13px;
+  }
+  .options {
+    font-size: 13px;
+    display: flex;
+    line-height: 34px;
+    background: var(--dark);
+    height: 35px;
+    position: relative;
+    color: var(--grey);
+    .underBorder {
+      width: calc(100% / 2);
+      box-shadow: inset 0 -3px 0 0 var(--secondary); /* Border bottom */
+      height: 3px;
+      bottom: 0;
+      position: absolute;
+    }
+    & > div {
+      text-align: center;
+      flex: 1;
+      cursor: pointer;
+      transition-duration: 0.2s;
+      &.active {
+        //   box-shadow: inset 0 -3px 0 0 var(--secondary); /* Border bottom */
+        color: var(--white);
+      }
+      &:hover {
+        color: var(--primary);
+      }
+    }
+  }
+  .selectedOptionWrap {
+    height: 433px;
+    width: 100%;
+    & > div {
+      width: 100%;
+      height: 100%;
+    }
+    .option-2 {
+      overflow: hidden;
+      position: relative;
+      .qrCode {
+        position: absolute;
+        top: 16px;
+        left: 20px;
+        width: 105px;
+      }
+    }
+    .option-1 {
+      width: 100%;
+      height: 100%;
+      overflow-y: auto;
+      .sticky {
+        position: sticky;
+        top: 0;
+        z-index: 9999;
+      }
+      .sportTab {
+        width: 100%;
+        height: 30px;
+        line-height: 30px;
+        padding: 0 20px;
+        cursor: pointer;
+        display: flex;
+        font-size: 12px;
+        border-bottom: solid 1px var(--grey);
+        background: var(--black);
+        color: var(--white);
+        .sportIcon {
+          line-height: 30px;
+        }
+        &.active {
+          // background-color: var(--black);
+          .expandIcon {
+            color: var(--primary);
+          }
+        }
+        & > .sportIcon {
+          margin-right: 10px;
+        }
+
+        & > .right {
+          display: flex;
+          margin-left: auto;
+        }
+      }
+      .eventWrap {
+        cursor: pointer;
+        .event {
+          height: auto;
+          min-height: 91px;
+          display: flex;
+          width: 100%;
+          position: relative;
+          padding: 10px;
+          .left {
+            height: auto;
+            width: 70%;
+            .eventName {
+              font-size: 13px;
+              color: var(--themeText);
+              min-height: 25px;
+              height: auto;
+              line-height: 25px;
+            }
+            .teamInfo {
+              .home,
+              .away {
+                color: var(--majorText);
+                font-size: 13px;
+                min-height: 20px;
+                height: auto;
+                line-height: 20px;
+              }
+            }
+          }
+          .right {
+            margin-left: auto;
+            height: auto;
+            width: auto;
+            min-width: 30%;
+            text-align: right;
+            .time {
+              color: #718284;
+              font-size: 13px;
+            }
+            .streaming {
+              font-size: 13px;
+              color: var(--red);
+            }
+            .vid {
+              position: absolute;
+              font-size: 13px;
+              display: flex;
+              right: 10px;
+              width: 100%;
+              bottom: 10px;
+              position: absolute;
+              transition-duration: 0.2s;
+              & > div {
+                float: right;
+                margin-left: auto;
+                cursor: pointer;
+                width: auto;
+                padding: 0 10px;
+                background: #575757;
+                color: var(--textColor);
+                &.blocked {
+                  background: var(--black);
+                  color: var(--grey);
+                }
+                border-radius: 19px;
+                &.active {
+                  background: var(--primary);
+                  color: var(--mainText);
+                  &.blocked {
+                    background: var(--black);
+                    color: var(--grey);
+                  }
+                }
+                &:hover {
+                  opacity: 0.8;
+                }
+              }
+              .live {
+                margin-left: 10px;
+              }
+            }
+          }
+          &:nth-child(odd) {
+            background: rgb(224, 224, 224);
+          }
+          &.active {
+            // background-color: var(--paleBackground);
+            // border-style: solid;
+
+            //   border-image: linear-gradient(to bottom, #955d2c, #f3d382) 1 100%;
+          }
+        }
+      }
+    }
+    .appInfo {
+      width: 100%;
+      padding-top: 10px;
+      height: calc(100% - 256px);
+    }
+    .app {
+      width: 100%;
+      height: 256px;
+      border: 0;
+    }
+  }
+}
