@@ -8,12 +8,33 @@
 }
 
 .sport-select-wrap {
-    overflow: auto;
-    width: 500px;
+    // overflow: auto;
+    margin-left: 15px;
+    overflow: hidden;
+    width: 350px;
     // height: 65px;
 }
 .sport-select {
     width: max-content;
+    margin-left: 15px;
+    transition: 0.6s all;
+}
+
+.arrow-active {
+    color: #4890F7;
+    cursor: pointer;
+}
+
+.arrow-left  {
+    position: absolute;
+    top: 20px;
+    left: 0;
+}
+
+.arrow-right {
+    position: absolute;
+    bottom: 18px;
+    left: 380px;
 }
 
 .sport-select .active {
@@ -31,7 +52,8 @@
     margin-left: 5px;
     color: #D3D7DD;
     border: 1px solid #D3D7DD;
-    float: left;
+    display: inline-block;
+    // float: left;
     -webkit-border-radius: 3px;
     -moz-border-radius: 3px;
     -ms-border-radius: 3px;

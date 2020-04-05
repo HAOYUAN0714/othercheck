@@ -2,8 +2,11 @@
     <div class="games-wrap">
         <Loading :loaded="sportTypes.length ===  0"/>
         <div class="filters-wrap">
+            <!-- <div class="arrow-left"><i class="fas fa-chevron-left"></i></div> -->
             <div class="sport-select-wrap">
-                <div class="sport-select">
+
+                <div class="arrow-left" @click="goLeft" :class="{'arrow-active': sportTypesCurrentPage > 1}"><i class="fas fa-chevron-left"></i></div>
+                <div class="sport-select" ref="sportSelect">
                     <div
                     class="sport-sort"
                     v-for="item in sportTypes"
@@ -18,12 +21,15 @@
                         <i class="fas fa-golf-ball"  v-else-if="item.SportName ===  'Golf' ||  item.SportName ===  '高尔夫球' "></i>
                         <i class="fas fa-football-ball"  v-else-if="item.SportName ===  'Rugby' ||  item.SportName ===  '美式足球' "></i>
                         <i class="fas fa-medal" v-else></i>
-
                         <span class="sport-sort-name">{{ item.SportName }}</span>
                     </div>
-                    <div class="clearfix"></div>
+
+                    <!-- <div class="clearfix"></div> -->
+
                 </div>
+                <div class="arrow-right" @click="goRight" :class="{'arrow-active': sportTypesPageSize > sportTypesCurrentPage }"><i class="fas fa-chevron-right"></i></div>
             </div>
+            <!-- <div class="arrow-right"><i class="fas fa-chevron-right"></i></div> -->
             <!-- <div  v-if="currentLanguageCode==='CHS'" class="language-controller" @click="changeLanguage('ENG')">English <i class="fas fa-globe-americas"></i></div>
             <div  v-else-if="currentLanguageCode==='ENG'" class="language-controller"  @click="changeLanguage('CHS')">切换简中 <i class="fas fa-globe-americas"></i></div> -->
             <div class="list-title" v-if="currentLanguageCode==='CHS'" v-clickoutside="handleCompetitionClose"  :class="{disabled : competitionData.length === 0}">
@@ -141,15 +147,17 @@
                         </td> -->
                         <td class="home-team-name">{{ item.HomeTeam }}</td>
                         <td>
-                            <span v-if="item.AwayScore && item.HomeScore" class="has-score">
-                            {{ item.HomeScore}}
-                            <span v-html="space" />:
-                            <span v-html="space" />
-                            {{ item.AwayScore }}
+                            <span :class="{'has-score': item.AwayScore || item.HomeScore}">
+                                <span v-if="item.HomeScore">{{ item.HomeScore}}</span>
+                                <span v-if="!item.HomeScore">-</span>
+                                <span v-html="space" />:
+                                <span v-html="space" />
+                                <span v-if="item.AwayScore">{{ item.AwayScore }}</span>
+                                <span v-if="!item.AwayScore">-</span>
                             </span>
-                            <span v-else class>
+                            <!-- <span v-else class>
                             -<span v-html="space" />:<span v-html="space" />-
-                            </span>
+                            </span> -->
                         </td>
                         <td class="away-team-name">{{ item.AwayTeam }}</td>
                         <td v-if="filterBetType(item)">
@@ -211,15 +219,18 @@ export default {
                 // earilyDate: [], // 只有早盤日期
                 allDate: [], // 包含早盤今日日期
             },
-            currentMarketId: 2, // 判斷 、早盤1、今日2、 的id ，這裡不使用滾球 id
+            // currentMarketId: 2, // 判斷 、早盤1、今日2、 的id ，這裡不使用滾球 id
             currentSportId: 1, // 球種 id 預設足球
             currentDate: '', // 目前選定日期
+            todayDate: '', // 今日日期
             currentDateChanged: false, // 用來判斷是否預設日期為第1個
             competitionData : [], // 聯盟篩選資料
             isAllCompetition: true, // 預設全部聯盟篩選
             competitionDropSwitch: false, // 聯盟篩選清單開關
             dropDownActive: false, // 日期選單是否開啟
             sportTypes: [], // 所有球種
+            sportTypesPageSize: 1, // 所有球種選擇頁數
+            sportTypesCurrentPage: 1, // 目前球種選擇頁數
             todaySports: [], // 今日有開盤的球種
             eairlySports: [],  // 早盤有開盤的球種
             todayEvents:[], // 今日含滾球的賽事
@@ -345,6 +356,8 @@ export default {
                         vm.currentSportId =  vm.sportTypes[0].SportId;
                     }
                 }
+                let parentWidth = this.$refs.sportSelect.offsetWidth;
+                vm.sportTypesPageSize = Math.ceil(parentWidth / 350);
             });
         },
         getLiveData () {
@@ -353,7 +366,7 @@ export default {
             let apiParams ="?SportIds[]="+vm.currentSportId+"&OddsType=2&ColorCode=30&ColorCon=200&LanguageCode="+vm.currentLanguageCode; // SportId多 s6
             vm.$http.get(apiHost + apiParams).then(res => {
                 console.log('滾球api回應',res);
-                if (res.data.data.Sports.length > 0) {
+                if (res.data.data.Sports[0] && res.data.data.Sports[0].Events) {
                     vm.newListData.push(...res.data.data.Sports[0].Events);
                     // vm.newListData.push(...res.data.data.Sports[0].Events);
                     console.log('滾球賽事',res.data.data.Sports[0].Events);
@@ -367,12 +380,14 @@ export default {
         getTodayData () {
             const vm = this;
             const apiHost = "/exsport/live/api/get-event-info-by-page";
-            const firstPageParams ="?SportId="+vm.currentSportId+"&Market=1&Page=1&OddsType=2&ColorCode=30&ColorCon=200&LanguageCode="+vm.currentLanguageCode;
+            const firstPageParams ="?SportId="+vm.currentSportId+"&Market=2&Page=1&OddsType=2&ColorCode=30&ColorCon=200&LanguageCode="+vm.currentLanguageCode;
             vm.$http.get(apiHost + firstPageParams).then(res => {
                 if (res.data.data.PageSize) { // 取得球種總頁數
                     vm.todayPageSize = res.data.data.PageSize;
                 }
-                vm.newListData.push(...res.data.data.Sports[0].Events);
+                if (res.data.data.Sports[0] && res.data.data.Sports[0].Events) {
+                    vm.newListData.push(...res.data.data.Sports[0].Events);
+                }
                 vm.todayEvents = vm.newListData;
                 // 如果目前頁數大於1且小於等於最大頁數，調用其他已啟用page的資料
                 if (vm.todayCurrentPage <= vm.todayPageSize && vm.todayCurrentPage > 1) {
@@ -381,12 +396,12 @@ export default {
                     } else {
                         vm.todayUsedPage = vm.todayCurrentPage;
                     }
-                    vm.todayCurrentPage = 1;
+                    // vm.todayCurrentPage = 1;
                     let pagesData = [];
                     let pagesSports = [];
                     for(let i = 2; i <= vm.todayUsedPage; i++) {
-                        let apiParams ="?SportId="+vm.currentSportId+"&Market=1&Page="+vm.todayCurrentPage+"&OddsType=2&ColorCode=30&ColorCon=200&LanguageCode="+vm.currentLanguageCode;
-                        vm.todayCurrentPage+=1;
+                        let apiParams ="?SportId="+vm.currentSportId+"&Market=2&Page="+i+"&OddsType=2&ColorCode=30&ColorCon=200&LanguageCode="+vm.currentLanguageCode;
+                        // vm.todayCurrentPage+=1;
                         vm.$http.get(apiHost + apiParams).then(response => {
                             if (response.data.data.Sports[0]) {
                                 vm.newListData.push(...response.data.data.Sports[0].Events);
@@ -403,12 +418,12 @@ export default {
             const vm = this;
             const apiHost = "/exsport/live/api/get-event-info-by-page";
             // let apiParams ="?SportId="+vm.currentSportId+"&Market="+vm.currentMarketId+"&Page="+vm.currentPage+"&OddsType=2&ColorCode=30&ColorCon=200&LanguageCode="+vm.currentLanguageCode;
-            const firstPageParams ="?SportId="+vm.currentSportId+"&Market=2&Page=1&OddsType=2&ColorCode=30&ColorCon=200&LanguageCode="+vm.currentLanguageCode;
+            const firstPageParams ="?SportId="+vm.currentSportId+"&Market=1&Page=1&OddsType=2&ColorCode=30&ColorCon=200&LanguageCode="+vm.currentLanguageCode;
             vm.$http.get(apiHost + firstPageParams).then(res => { // 使用 page=1 的參數
                 if (res.data.data.PageSize) { // 取得球種總頁數
                     vm.earilyPageSize = res.data.data.PageSize;
                 }
-                if (res.data.data.Sports[0]) {
+                if (res.data.data.Sports[0] && res.data.data.Sports[0].Events) {
                     vm.newListData.push(...res.data.data.Sports[0].Events);
                     console.log('同步更新資料',vm.newListData);
                     // 如果目前頁數大於1且小於等於最大頁數，調用其他已啟用page的資料
@@ -418,12 +433,12 @@ export default {
                         } else {
                             vm.earilyUsedPage = vm.earilyCurrentPage;
                         }
-                        vm.earilyCurrentPage = 1;
+                        // vm.earilyCurrentPage = 1;
                         let pagesData = [];
                         let pagesSports = [];
                         for(let i = 2; i <= vm.usedPage; i++) {
-                            let apiParams ="?SportId="+vm.currentSportId+"&Market=2&Page="+vm.earilyCurrentPage+"&OddsType=2&ColorCode=30&ColorCon=200&LanguageCode="+vm.currentLanguageCode;
-                            vm.earilyCurrentPage+=1;
+                            let apiParams ="?SportId="+vm.currentSportId+"&Market=1&Page="+i+"&OddsType=2&ColorCode=30&ColorCon=200&LanguageCode="+vm.currentLanguageCode;
+                            // vm.earilyCurrentPage+=1;
                             vm.$http.get(apiHost + apiParams).then(response => {
                                 console.log(apiParams);
                                 if (response.data.data.Sports[0]) {
@@ -520,6 +535,7 @@ export default {
                 console.log('日期stamp',vm.dateData);
                 if (vm.dateData.allDate && !vm.currentDateChanged) {
                     // vm.currentDate = vm.dateData.allDate[0]; // 預設選定日期為第1個日期
+                    vm.todayDate = vm.dateData.today;
                     vm.currentDate = vm.dateData.allDate[0];
                     // 預設選定日期目前啟用賽事日期
                     // let  timstamp = new Date(vm.activeEventData.EventDate) - (12*60*60*1000);
@@ -551,22 +567,10 @@ export default {
             }
             scrollHeight = (bSH - dSH > 0) ? bSH : dSH ;
             if (scrollTop+windowHeight >= scrollHeight  ) {  // 當捲軸達底部 且目前頁數不超過總頁數
-
-                if (vm.currentMarketId === 1 && vm.earilyCurrentPage < vm.earilyPageSize) {
-                    vm.earilyCurrentPage+= 1;
-                    const apiHost = "/exsport/live/api/get-event-info-by-page";
-                    let apiParams ="?SportId="+vm.currentSportId+"&Market="+vm.currentMarketId+"&Page="+vm.earilyCurrentPage+"&OddsType=3&ColorCode=30+&LanguageCode="+vm.currentLanguageCode;
-                    vm.$http.get(apiHost + apiParams).then(res => {
-                        if (res.data.data.Sports[0]) {
-                            vm.newListData.push(...res.data.data.Sports[0].Events);
-                            console.log('更新後總資料',vm.newListData);
-                        }
-                        vm.listData =  vm.newListData;
-                    });
-                } else if (vm.currentMarketId === 2 && vm.todayCurrentPage < vm.todayPageSize) {
+                if (vm.todayCurrentPage < vm.todayPageSize) {
                     vm.todayCurrentPage+= 1;
                     const apiHost = "/exsport/live/api/get-event-info-by-page";
-                    let apiParams ="?SportId="+vm.currentSportId+"&Market="+vm.currentMarketId+"&Page="+vm.todayCurrentPage+"&OddsType=3&ColorCode=30+&LanguageCode="+vm.currentLanguageCode;
+                    let apiParams ="?SportId="+vm.currentSportId+"&Market=2&Page="+vm.todayCurrentPage+"&OddsType=3&ColorCode=30+&LanguageCode="+vm.currentLanguageCode;
                     console.log('apiParams',apiParams);
                     vm.$http.get(apiHost + apiParams).then(res => {
                         if (res.data.data.Sports[0]) {
@@ -576,6 +580,19 @@ export default {
                         vm.listData =  vm.newListData;
                     });
                 }
+                if (vm.earilyCurrentPage < vm.earilyPageSize) {
+                    vm.earilyCurrentPage+= 1;
+                    const apiHost = "/exsport/live/api/get-event-info-by-page";
+                    let apiParams ="?SportId="+vm.currentSportId+"&Market=1&Page="+vm.earilyCurrentPage+"&OddsType=3&ColorCode=30+&LanguageCode="+vm.currentLanguageCode;
+                    vm.$http.get(apiHost + apiParams).then(res => {
+                        if (res.data.data.Sports[0]) {
+                            vm.newListData.push(...res.data.data.Sports[0].Events);
+                            console.log('更新後總資料',vm.newListData);
+                        }
+                        vm.listData =  vm.newListData;
+                    });
+                }
+
 
                 // const apiHost = "/exsport/live/api/get-event-info-by-page";
                 // let apiParams ="?SportId="+vm.currentSportId+"&Market="+vm.currentMarketId+"&Page="+vm.currentPage+"&OddsType=3&ColorCode=30+&LanguageCode="+vm.currentLanguageCode;
@@ -673,6 +690,18 @@ export default {
                 vm.autoUpdateData.currentIntervalTime -= 1; // 每次扣1秒
             },1000)
         },
+        goLeft () {
+            if (this.sportTypesCurrentPage > 1) {
+                this.sportTypesCurrentPage -= 1;
+                this.$refs.sportSelect.style.transform = 'translateX('+(-350)*(this.sportTypesCurrentPage - 1)+'px)';
+            }
+        },
+        goRight () {
+            if (this.sportTypesPageSize > this.sportTypesCurrentPage) {
+                this.sportTypesCurrentPage += 1;
+                this.$refs.sportSelect.style.transform = 'translateX('+(-350)*(this.sportTypesCurrentPage - 1)+'px)';
+            }
+        }
     },
     computed: {
         filterBetType() {

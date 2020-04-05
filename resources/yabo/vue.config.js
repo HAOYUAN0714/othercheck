@@ -11,8 +11,8 @@ module.exports = {
         host: '0.0.0.0',
         proxy: {
             '/exsport': {
-                // target: 'https://wstt.66chile.com/exsport/', // 正式站
-                target: 'https://wsws.66boxing.com/exsport/', // 測試站
+                target: 'https://wstt.66chile.com/exsport/', // 正式站
+                // target: 'https://wsws.66boxing.com/exsport/', // 測試站
                 changeOrigin: true,
                 pathRewrite: {
                     '^/exsport': ''
