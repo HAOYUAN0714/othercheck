@@ -14,8 +14,8 @@
         >
             <div class="alert-text"> - 本賽事沒有提供直播 -</div>
         </div> -->
-    <div id="dplayer" class="d-player-video"/>
-
+    <div id="dplayer" class="d-player-video" v-if="propEventData.LiveStreamingMobile"  :videoUrl="propEventData.LiveStreamingMobileUrl[0].Url"/>
+    <div v-else class="alert-text"> - 本賽事沒有提供直播 -</div>
 	</div>
 </template>
 
@@ -32,26 +32,29 @@ export default {
     data() {
         return {
             imageUrl:  backgroundImage,
+            videoUrl: '',
         }
     },
     methods: {
         playVid() {
-            this.dp = new DPlayer({
-                container: document.getElementById("dplayer"),
-                video: {
-                    // url: propEventData.LiveStreamingMobileUrl[0].Url,
-                    url: 'https://pull.xizhenzhu.com/live/streamcnhd328210.m3u8?auth_key=1586177100-0-0-421295f68e7f1cb0501ee9d745418fed',
-                    autoplay: true,
-                    type: "customHls",
-                    customType: {
-                        customHls: function(video, player) {
-                            const hls = new Hls();
-                            hls.loadSource(video.src);
-                            hls.attachMedia(video);
+            if (this.videoUrl) {
+                this.dp = new DPlayer({
+                    container: document.getElementById("dplayer"),
+                    video: {
+                        url: this.videoUrl,
+                        // url: 'https://pull.xizhenzhu.com/live/streamcnhd328210.m3u8?auth_key=1586177100-0-0-421295f68e7f1cb0501ee9d745418fed',
+                        autoplay: true,
+                        type: "customHls",
+                        customType: {
+                            customHls: function(video, player) {
+                                const hls = new Hls();
+                                hls.loadSource(video.src);
+                                hls.attachMedia(video);
+                            }
                         }
                     }
-                }
-            });
+                });
+            }
         }
     },
     mounted () {
