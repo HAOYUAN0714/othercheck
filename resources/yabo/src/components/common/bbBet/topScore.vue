@@ -10,11 +10,11 @@
             <div class="union" v-if="propEventData.Competition">{{ propEventData.Competition.CompetitionName }}</div>
             <div class="separate-line"></div>
             <div class="current-result">
-                <span v-if="propEventData.HomeScore" class="home-team-score">{{propEventData.HomeScore}}</span>
-                <span v-else class="home-team-score">-</span>
+                <span v-if="propEventData.HomeScore !== null" class="home-team-score">{{propEventData.HomeScore}}</span>
+                <span v-else-if="propEventData.HomeScore === null" class="home-team-score">-</span>
                 <span class="contrast-icon"> : </span>
-                <span v-if="propEventData.AwayScore"  class="away-team-score">{{propEventData.AwayScore}}</span>
-                <span v-else  class="away-team-score">-</span>
+                <span v-if="propEventData.AwayScore !== null"  class="away-team-score">{{propEventData.AwayScore}}</span>
+                <span v-else-if="propEventData.AwayScore === null"  class="away-team-score">-</span>
             </div>
 		</div>
 		<div class="away-team">

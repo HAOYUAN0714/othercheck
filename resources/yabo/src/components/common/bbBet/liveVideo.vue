@@ -14,20 +14,16 @@
         >
             <div class="alert-text"> - 本賽事沒有提供直播 -</div>
         </div> -->
-
-    <video class="live-video" width="720" height="360"
-        controls="controls" autoplay="autoplay"
-        x-webkit-airplay="true" x5-video-player-fullscreen="true"
-        preload="auto" playsinline="true" webkit-playsinline
-        x5-video-player-typ="h5">
-        <source type="application/x-mpegURL" src="https://pull.xizhenzhu.com/live/stream2498854.m3u8?auth_key=1585688400-0-0-4935c04a653aa31ac964403423669d15">
-    </video>
+    <div id="dplayer" class="d-player-video"/>
 
 	</div>
 </template>
 
 <script>
-import backgroundImage from '../../../assets/dist/main-back.png'
+import backgroundImage from '../../../assets/dist/main-back.png';
+import Hls from "hls.js/dist/hls.min.js";
+import "dplayer/dist/DPlayer.min.css";
+import DPlayer from "dplayer";
 
 export default {
     props: {
@@ -38,6 +34,29 @@ export default {
             imageUrl:  backgroundImage,
         }
     },
+    methods: {
+        playVid() {
+            this.dp = new DPlayer({
+                container: document.getElementById("dplayer"),
+                video: {
+                    // url: propEventData.LiveStreamingMobileUrl[0].Url,
+                    url: 'https://pull.xizhenzhu.com/live/streamcnhd328210.m3u8?auth_key=1586177100-0-0-421295f68e7f1cb0501ee9d745418fed',
+                    autoplay: true,
+                    type: "customHls",
+                    customType: {
+                        customHls: function(video, player) {
+                            const hls = new Hls();
+                            hls.loadSource(video.src);
+                            hls.attachMedia(video);
+                        }
+                    }
+                }
+            });
+        }
+    },
+    mounted () {
+        this.playVid();
+    }
 }
 </script>
 

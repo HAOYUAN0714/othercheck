@@ -267,5 +267,13 @@ export default {
     TEXT_VIRTUAL_WORLD_CUP: "虚拟世界杯",
     TEXT_VIRTUAL_BASKETBALL: "虚拟篮球",
     TEXT_ATHELETICS: "田径",
-    TEXT_FOOTBALL: '橄榄球'
+    TEXT_FOOTBALL: '橄榄球',
+    S_FIRST_QUAR: "第一节",
+    S_SECOND_QUAR: "第二节",
+    S_THIRD_QUAR: "第三节",
+    S_FOURTH_QUAR: "第四节",
+    S_FIRST_HALF: "上半场",
+    S_SECOND_HALF: "下半场",
+    S_LIVE: "滚球中",
+    S_HT: "中场",
 }

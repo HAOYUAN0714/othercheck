@@ -13,6 +13,12 @@
     left: calc(50% - 360px);
     top: calc(50% - 180px);
 }
+.d-player-video {
+    top:20px;
+    margin-left: calc(50% - 360px);
+    width:720px;
+    height:360px;
+}
 
 .no-video-alert {
     position: relative;
