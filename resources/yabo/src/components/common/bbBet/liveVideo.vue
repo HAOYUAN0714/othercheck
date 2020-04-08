@@ -14,7 +14,7 @@
         >
             <div class="alert-text"> - 本賽事沒有提供直播 -</div>
         </div> -->
-    <div id="dplayer" class="d-player-video" v-if="propEventData.LiveStreamingMobile"  :videoUrl="propEventData.LiveStreamingMobileUrl[0].Url"/>
+    <div id="dplayer" class="d-player-video" v-if="propEventData.LiveStreamingMobile"  />
     <div v-else class="alert-text"> - 本賽事沒有提供直播 -</div>
 	</div>
 </template>
@@ -32,7 +32,6 @@ export default {
     data() {
         return {
             imageUrl:  backgroundImage,
-            videoUrl: '',
         }
     },
     methods: {
@@ -41,7 +40,7 @@ export default {
                 this.dp = new DPlayer({
                     container: document.getElementById("dplayer"),
                     video: {
-                        url: this.videoUrl,
+                        url: this.propEventData.LiveStreamingMobileUrl[0].Url,
                         // url: 'https://pull.xizhenzhu.com/live/streamcnhd328210.m3u8?auth_key=1586177100-0-0-421295f68e7f1cb0501ee9d745418fed',
                         autoplay: true,
                         type: "customHls",
