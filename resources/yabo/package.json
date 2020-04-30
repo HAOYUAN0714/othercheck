@@ -22,7 +22,7 @@
     "env-cmd": "^10.0.1",
     "flatpickr": "^4.6.3",
     "hls.js": "^0.13.2",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "moment": "^2.24.0",
     "slick-carousel": "^1.8.1",
     "socket.io-client": "^2.3.0",
