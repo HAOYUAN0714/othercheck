@@ -14,7 +14,7 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
-    "axios": "^0.19.1",
+    "axios": "^0.21.1",
     "core-js": "^3.3.2",
     "css-vars-ponyfill": "^2.1.2",
     "dplayer": "^1.25.0",
